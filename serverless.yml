@@ -20,11 +20,6 @@ functions:
       NEW_RELIC_TRUSTED_ACCOUNT_KEY: 123
       NEW_RELIC_LOG_ENABLED: true
       NEW_RELIC_LOG: 'stdout'
-      POSTGRES_USERNAME: ''
-      POSTGRES_PASSWORD: ''
-      POSTGRES_HOST: ''
-      POSTGRES_PORT: 5432
-      POSTGRES_DATABASE: ''
     layers:
       - arn:aws:lambda:us-west-2:451483290750:layer:NewRelicNodeJS18X:16
     events:
@@ -34,10 +29,3 @@ functions:
 
 plugins:
   - serverless-plugin-typescript
-  # - serverless-newrelic-lambda-layers
-
-custom:
-  newRelic:
-    accountId: 3836132
-    apiKey: 'xxx'
-    disableLicenseKeySecret: true
