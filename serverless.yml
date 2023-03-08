@@ -12,16 +12,11 @@ functions:
   api:
     handler: index.handler
     environment:
-      NEW_RELIC_LAMBDA_HANDLER: index.handler
-      NEW_RELIC_LICENSE_KEY: ''
-      NEW_RELIC_NO_CONFIG_FILE: true
-      NEW_RELIC_APP_NAME: ""
-      NEW_RELIC_ACCOUNT_ID: 123
-      NEW_RELIC_TRUSTED_ACCOUNT_KEY: 123
-      NEW_RELIC_LOG_ENABLED: true
-      NEW_RELIC_LOG: 'stdout'
-    layers:
-      - arn:aws:lambda:us-west-2:451483290750:layer:NewRelicNodeJS18X:16
+      POSTGRES_USERNAME: ''
+      POSTGRES_PASSWORD: ''
+      POSTGRES_HOST: ''
+      POSTGRES_PORT: 5432
+      POSTGRES_DATABASE: ''
     events:
       - httpApi:
           path: /
@@ -29,3 +24,9 @@ functions:
 
 plugins:
   - serverless-plugin-typescript
+  - serverless-newrelic-lambda-layers
+
+custom:
+  newRelic:
+    accountId: 123
+    apiKey: ''
